@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "fix": "./node_modules/.bin/eslint js/*.js --fix",
+    "test": "./node_modules/.bin/grunt ci"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +21,11 @@
     "grunt-contrib-sass": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-postcss": "latest"
+    "grunt-postcss": "latest",
+    "eslint": "^3.19.0",
+    "grunt-eslint": "^20.0.0"
+  },
+  "peerDependencies": {
+    "grunt-cli": "^1.2.0"
   }
 }

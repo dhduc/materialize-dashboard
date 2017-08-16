@@ -1,4 +1,5 @@
 module.exports = function (grunt) {
+    var key;
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         sass: {
@@ -44,16 +45,24 @@ module.exports = function (grunt) {
             options: {
                 reload: true
             }
+        },
+        eslint: {
+            options: {
+                configFile: '.eslintrc.js'
+            },
+            target: ['js/*.js']
         }
     });
 
-    // Load Grunt plugins
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    // Loading dependencies
+    for ( key in grunt.file.readJSON( "package.json" ).devDependencies ) {
+        if ( key !== "grunt" && key.indexOf( "grunt" ) === 0 ) {
+            grunt.loadNpmTasks( key );
+        }
+    }
 
     // Register Grunt tasks
     grunt.registerTask('default', ['sass', 'cssmin', 'uglify']);
     grunt.registerTask('dev', ['watch']);
+    grunt.registerTask('ci', ['eslint']);
 };
