@@ -1,49 +1,14 @@
 ## Materialize Dashboard
 
-### Install
+### Usage:
 
-```
-npm install
-```
-
-### Compile CSS
-
-```
-grunt sass
-```
-
-### Minify CSS
-
-```
-grunt cssmin
-```
-
-### Minify JS
-
-```
-grunt uglify
-```
-
-### Development watch
-
-```
-grunt dev
-```
-
-### Eslint testing
-
-```
-grunt ci
-```
-
-### Eslint fix
-
-```
-npm run fix
-```
-
-### Start server
-
-```
-npm start
-```
+| Command | Description |
+| -------- | -------- |
+| npm install | Install Node packages |
+| grunt sass | Compile SASS |
+| grunt cssmin | Minify CSS |
+| grunt uglify | Minify JS |
+| grunt dev | Develop watch mode |
+| grunt ci | Eslint test |
+| npm run fix | Eslint fix |
+| npm start | Start Express server |
